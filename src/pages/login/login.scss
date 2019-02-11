@@ -1,4 +1,8 @@
 page-login {
+
+    .pageBK {
+
+    }
     
     #header {
         display: flex;
@@ -6,9 +10,19 @@ page-login {
         justify-content: center; 
         align-items: center; 
 
-        background-position: 0px -250px; 
-        background-size: 100% 500%; 
-        background-image: url('../assets/imgs/background.png');
+        // background-position: 0px -250px; 
+        // background-size: 100% 500%; 
+        // background-image: url('../assets/imgs/background.png');
+        opacity: 1;
+        background-image: url('../assets/imgs/bk/bk1.jpg');
+        background-size: cover;
+        background-position: center;
+        width: 100vh;
+        height: 100vh;
+        @keyframes {
+            from {opacity: 0;}
+            to {opacity: 1;}
+          }
     }
 
     #title {

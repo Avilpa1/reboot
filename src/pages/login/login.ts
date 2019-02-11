@@ -127,4 +127,19 @@ export class LoginPage {
 
     toast.present();
   }
+
+  ionViewDidEnter() {
+    this.bkChange()
+  }
+
+  bkChange() {
+    setInterval(() => {
+      let random = Math.floor(Math.random() * 5) + 1
+      console.log(random)
+        document.getElementById("header").style.backgroundImage = "url('../assets/imgs/bk/bk" + random + ".jpg')";
+                                        
+        // document.getElementById("header").style.opacity = "1";
+    },5000)
+  }
+  
 }
