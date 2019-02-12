@@ -22,6 +22,7 @@ export class LoginPage {
   getDummyChart: any
   user: any
   userId: any
+  bgInterval:any = ''
 
   private loginCreds : FormGroup;
   // loginResponse: any;
@@ -132,14 +133,19 @@ export class LoginPage {
     this.bkChange()
   }
 
+  ionViewWillLeave() {
+    console.log('left login page')
+    clearTimeout(this.bgInterval)
+  }
+
   bkChange() {
-    setInterval(() => {
+    this.bgInterval = setInterval(() => {
       let random = Math.floor(Math.random() * 5) + 1
       console.log(random)
         document.getElementById("header").style.backgroundImage = "url('../assets/imgs/bk/bk" + random + ".jpg')";
                                         
         // document.getElementById("header").style.opacity = "1";
-    },5000)
+    }, 20000)
   }
   
 }

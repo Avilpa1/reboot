@@ -14,7 +14,9 @@
       </ion-col>
     </ion-row>
 
-    <form [formGroup]="loginCreds" (ngSubmit)="login()">
+    <a href="#login"><ion-icon id='tologin' name="arrow-dropdown-circle"></ion-icon></a>
+
+    <form [formGroup]="loginCreds" (ngSubmit)="login()" id='login'>
       
       <ion-row justify-content-center>
         <ion-col col-7 col-xl-6>

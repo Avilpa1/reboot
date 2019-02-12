@@ -1,7 +1,21 @@
 page-login {
 
-    .pageBK {
+    * {
+       scroll-behavior: smooth; 
+    }
+    
+    ion-content {
+        margin-bottom: 200px;
+    }
 
+    #tologin {
+        width: 100%;
+        top: 86%;
+        position: absolute;
+        font-size: 12vh;
+        text-align: center;
+        color: #2459f88a;
+        content: "\f289";
     }
     
     #header {
@@ -13,16 +27,13 @@ page-login {
         // background-position: 0px -250px; 
         // background-size: 100% 500%; 
         // background-image: url('../assets/imgs/background.png');
-        opacity: 1;
+
         background-image: url('../assets/imgs/bk/bk1.jpg');
         background-size: cover;
         background-position: center;
         width: 100vh;
         height: 100vh;
-        @keyframes {
-            from {opacity: 0;}
-            to {opacity: 1;}
-          }
+        transition: 4s;
     }
 
     #title {
