@@ -14,9 +14,31 @@
       </ion-col>
     </ion-row>
 
-    <a href="#login"><ion-icon id='tologin' name="arrow-dropdown-circle"></ion-icon></a>
+    <!-- <a href="#login"><ion-icon id='tologin' name="arrow-dropdown-circle"></ion-icon></a> -->
+    
 
-    <form [formGroup]="loginCreds" (ngSubmit)="login()" id='login'>
+    <div id='newInput'>
+        <form [formGroup]="loginCreds" (ngSubmit)="login()" id='login'>
+
+          <ion-item color='none'>
+            <ion-label floating>Username</ion-label>
+            <ion-input formControlName="email" type="text"></ion-input>
+          </ion-item>
+        
+          <ion-item color='none'>
+            <ion-label floating>Password</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+
+          <button id="loginbutton" type="submit" ion-button block >LOGIN</button>
+
+        </form>
+    </div>
+
+    <!-- <a (click)='navToLogin()'><ion-icon id='tologin' name="arrow-dropdown-circle"></ion-icon></a> -->
+
+
+    <!-- <form [formGroup]="loginCreds" (ngSubmit)="login()" id='login'>
       
       <ion-row justify-content-center>
         <ion-col col-7 col-xl-6>
@@ -76,7 +98,7 @@
         <ion-col class="button-col" col-5>
           <button (click)="toRegisterPage()" id="signupbutton" ion-button block>SIGN UP</button>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
 
   </ion-grid>
 

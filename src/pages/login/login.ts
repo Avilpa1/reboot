@@ -148,4 +148,9 @@ export class LoginPage {
     }, 20000)
   }
   
+  navToLogin() {
+    console.log('nav')
+    // this.navCtrl.push(DashboardPage)
+    this.navCtrl.push(RegisterPage, {}, { animate: true, direction: 'back' });
+  }
 }

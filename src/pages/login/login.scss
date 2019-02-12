@@ -4,8 +4,21 @@ page-login {
        scroll-behavior: smooth; 
     }
     
-    ion-content {
-        margin-bottom: 200px;
+    #newInput {
+        position: absolute;
+        background-color: #00000075;
+        width: 90%;
+        top: 380px;
+        margin-left: 5%;
+        border-radius: 5px;
+        padding-bottom: 5%;
+        padding-right: 5%;
+        
+        
+    }
+
+    .item-ios {
+        background-color: none;
     }
 
     #tologin {
@@ -91,6 +104,8 @@ page-login {
         background-color: rgb(130,180,64); 
         font-size: 25px;
         height: 2.1em;
+        margin: 2%;
+        margin-top: 5%
     }
 
     #signupbutton {
