@@ -18,21 +18,30 @@
     
 
     <div id='newInput'>
-        <form [formGroup]="loginCreds" (ngSubmit)="login()" id='login'>
+      <form [formGroup]="loginCreds" (ngSubmit)="login()" id='login'>
 
-          <ion-item color='none'>
-            <ion-label floating>Username</ion-label>
-            <ion-input formControlName="email" type="text"></ion-input>
-          </ion-item>
-        
-          <ion-item color='none'>
-            <ion-label floating>Password</ion-label>
-            <ion-input formControlName="password" type="password"></ion-input>
-          </ion-item>
+        <ion-item color='none'>
+          <ion-label floating>Username</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
 
-          <button id="loginbutton" type="submit" ion-button block >LOGIN</button>
+        </ion-item>
 
-        </form>
+        <ion-item color='none' no-lines *ngIf="!loginCreds.controls.email.valid  && (loginCreds.controls.email.dirty || submitAttempt)">
+          <p text-center class="invalid-text">Please enter a valid email</p>
+        </ion-item>
+
+        <ion-item color='none'>
+          <ion-label floating>Password</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+
+        <ion-item color='none' no-lines *ngIf="!loginCreds.controls.password.valid  && (loginCreds.controls.password.dirty || submitAttempt)">
+            <p text-center class="invalid-text">Password contains 6-30 letters, numbers, or special characters</p>
+        </ion-item>
+
+            <button id="loginbutton" type="submit" ion-button block [disabled]="!loginCreds.valid">LOGIN</button>  
+      </form>
+        <button (click)="toRegisterPage()" id="signupbutton" ion-button block>SIGN UP</button>
     </div>
 
     <!-- <a (click)='navToLogin()'><ion-icon id='tologin' name="arrow-dropdown-circle"></ion-icon></a> -->

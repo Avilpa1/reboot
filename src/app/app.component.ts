@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events, ToastController, MenuController } from 'ionic-angular';
+import { Nav, Platform, Events, ToastController, MenuController, Toast } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Network } from '@ionic-native/network';
@@ -31,8 +31,8 @@ export class MyApp {
   rootPage: any = LoginPage;
   userToken = window.sessionStorage.getItem('token');
 
-  pages: Array<{title: string, component: any}>;
-  // logout: any;
+  pages: Array<{title: string, component: any}>;  
+  isToastPresent:boolean = false;
 
   constructor(
     public platform: Platform, 
@@ -72,13 +72,19 @@ export class MyApp {
       // Offline event
       this.events.subscribe('network:offline', () => {
       // alert('network:offline ==> '+this.network.type); 
+      if(this.isToastPresent==false) {
+        this.isToastPresent = true
         this.presentToast("No Network");
+        }
       });
 
       // // Online event
       this.events.subscribe('network:online', () => {
-      //    // alert('network:online ==> '+this.network.type);  
-        this.presentToast("online")     
+      //    // alert('network:online ==> '+this.network.type); 
+        if(this.isToastPresent==false) {
+          this.isToastPresent = true 
+          this.presentToast("online")
+        }     
       });
 
       this.menuCtrl.enable(false);
@@ -97,7 +103,8 @@ presentToast( message ) {
   });
 
   toast.onDidDismiss(() => {
-    console.log('Dismissed toast');
+    this.isToastPresent = false
+    // console.log('Dismissed toast');
   });
 
   toast.present();

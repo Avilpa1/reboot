@@ -141,7 +141,7 @@ export class LoginPage {
   bkChange() {
     this.bgInterval = setInterval(() => {
       let random = Math.floor(Math.random() * 5) + 1
-      console.log(random)
+      // console.log(random)
         document.getElementById("header").style.backgroundImage = "url('../assets/imgs/bk/bk" + random + ".jpg')";
                                         
         // document.getElementById("header").style.opacity = "1";
