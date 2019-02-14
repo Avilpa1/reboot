@@ -57,8 +57,8 @@ export class MyApp {
       { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
       { title: 'History', component: HistoryPage }, 
-      { title: 'Resources', component: ResourcesPage },
-      { title: 'Logout', component: LoginPage }
+      { title: 'Resources', component: ResourcesPage }
+      // { title: 'Logout', component: LoginPage }
     ];
 
   }
@@ -124,5 +124,11 @@ presentToast( message ) {
       // we wouldn't want the back button to show in this scenario
       this.nav.setRoot(page.component);
     }
+  }
+
+  logout() {
+    console.log('user logged out')
+    window.sessionStorage.clear()
+    this.nav.setRoot(LoginPage); 
   }
 }

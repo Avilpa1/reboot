@@ -52,6 +52,7 @@ export class LoginPage {
 
   login() {
     this.spinnerActive = true;
+    console.log('Is spinner running? ' + this.spinnerActive)
     this._userService.login(this.loginCreds.value)
       .subscribe(
         (res) => {
@@ -82,8 +83,9 @@ export class LoginPage {
           console.log(res);
           this._userService.setCredentials(res);
           // alert("you're logged in!");
-          this.navCtrl.setRoot(WizardPage);
+          //this.navCtrl.setRoot(WizardPage); // Implimenting newUserCheck function 
           //this.getChartData();
+          this.firstTimeUserCheck()
         },
         (err) => {
           this.spinnerActive = false;
@@ -118,34 +120,37 @@ export class LoginPage {
   //     );
   // }
 
-  toDashboard() {
-    let toast = this.toastCtrl.create({
-      message: "Login successful!",
-      duration: 2500,
-      position: 'middle'
-    });
+  // toDashboard() {
+  //   let toast = this.toastCtrl.create({
+  //     message: "Login successful!",
+  //     duration: 2500,
+  //     position: 'middle'
+  //   });
 
-    toast.onDidDismiss(() => {
-      this.navCtrl.setRoot(DashboardPage)
-    });
+  //   toast.onDidDismiss(() => {
+  //     this.navCtrl.setRoot(DashboardPage)
+  //   });
 
-    toast.present();
-  }
+  //   toast.present();
+  // }
 
   ionViewDidEnter() {
-    this.bkChange()
+    this.bkChange();
+  }
+
+  ionViewWillEnter() {
+    this.logInCheck();
   }
 
   ionViewWillLeave() {
-    console.log('left login page')
-    clearTimeout(this.bgInterval)
+    clearTimeout(this.bgInterval);
   }
 
   bkChange() {
     this.bgInterval = setInterval(() => {
       let random = Math.floor(Math.random() * 5) + 1
       // console.log(random)
-        document.getElementById("header").style.backgroundImage = "url('../assets/imgs/bk/bk" + random + ".jpg')";
+        document.getElementById("background").style.backgroundImage = "url('../assets/imgs/bk/bk" + random + ".jpg')";
                                         
         // document.getElementById("header").style.opacity = "1";
     }, 20000)
@@ -156,4 +161,29 @@ export class LoginPage {
     // this.navCtrl.push(DashboardPage)
     this.navCtrl.push(RegisterPage, {}, { animate: true, direction: 'back' });
   }
+
+  firstTimeUserCheck() {
+    this._userService.getUser()
+    .subscribe(response => {
+      let data = response;
+      console.log(data)
+      if (data.militaryBranch) {
+        this.navCtrl.setRoot(DashboardPage);
+              } else {
+        this.navCtrl.setRoot(WizardPage);        
+      }
+    })
+  }
+
+  logInCheck() {
+    let activeId = window.sessionStorage.getItem('userId');
+    let activeToken = window.sessionStorage.getItem('token');
+    
+    if (activeId != null) {
+      this.menuCtrl.enable(true);
+      this.menuCtrl.swipeEnable(true);
+      this.firstTimeUserCheck()
+    }
+  }
+
 }

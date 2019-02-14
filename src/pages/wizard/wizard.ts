@@ -6,6 +6,7 @@ import { DashboardPage } from '../../pages/dashboard/dashboard';
 import { SelfAssessmentPage } from '../../pages/self-assessment/self-assessment';
 import { UserProvider } from '../../providers/user/user';
 import * as moment from 'moment';
+import { LoginPage } from '../../pages/login/login';
 
 /**
  * Generated class for fthe WizardPage page.
@@ -198,7 +199,8 @@ export class WizardPage {
   };
   // called when users click on nav bar 'next' button; only enabled when forms are valid
   exit() {
-    this.navCtrl.setRoot(DashboardPage)
+    window.sessionStorage.clear()
+    this.navCtrl.push(LoginPage)
   }
   // Determines if the left and right arrows should be displayed
   leftOrRightArrow() {
