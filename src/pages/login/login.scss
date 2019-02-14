@@ -15,6 +15,10 @@ page-login {
         padding-right: 5%;
     }
 
+    .scroll-content{
+        overflow: hidden;
+        overflow-y: none;
+    }
     .item-ios {
         background-color: none;
     }
@@ -28,20 +32,31 @@ page-login {
         color: #2459f88a;
         content: "\f289";
     }
+
+    #spinner {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 30%;
+        z-index: 1000;
+        stroke: #488aff;
+        fill: #488aff;
+
+        display: block;
+        margin-right: auto;
+        width: 100%;
+      }
     
     #header {
         display: flex;
         padding: 65px;
         justify-content: center; 
         align-items: center; 
-
-        // background-position: 0px -250px; 
-        // background-size: 100% 500%; 
-        // background-image: url('../assets/imgs/background.png');
-
+        z-index: -1;
         background-image: url('../assets/imgs/bk/bk1.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: center top;
+        background-attachment: fixed;
         width: 100vh;
         height: 100vh;
         transition: 4s;
@@ -52,7 +67,8 @@ page-login {
         font-weight: bold; 
         font-family: proxima-nova; 
         font-size: 70px; 
-        color: white;
+        color: #e3e3e3;
+        text-shadow: 4px 4px 4px #000000;
     }
 
     #lifechange {
@@ -94,7 +110,7 @@ page-login {
     }
 
     .invalid-text {
-        font-size: 20px;
+        font-size: 14px;
         color: #ea6153;
       }
 
@@ -163,9 +179,9 @@ page-login {
         }
 
         .invalid-text {
-            font-size: 20px;
+            font-size: 12px;
             color: #ea6153;
-            margin: auto;
+            // margin: auto;
             width: 70%;
         }
 

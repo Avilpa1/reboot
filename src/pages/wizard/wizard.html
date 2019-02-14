@@ -14,9 +14,9 @@
 </ion-header>
 
 <ion-content >
-    <div class="nav-start">
+    <!-- <div class="nav-start">
       <button ion-button (click)="exit()" color="danger" id="end">Exit</button>
-    </div>
+    </div> -->
     <div id="leftArrow" *ngIf="leftArrowVisible" (click)="back()">
       <ion-icon name="arrow-back"></ion-icon>
     </div>
@@ -490,4 +490,7 @@
         </div>
       </ion-slide>
     </ion-slides>
+    <div class="nav-start">
+      <button ion-button (click)="exit()" color="danger" id="end">Exit</button>
+    </div>
 </ion-content>

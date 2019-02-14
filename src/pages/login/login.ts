@@ -25,7 +25,7 @@ export class LoginPage {
   bgInterval:any = ''
 
   private loginCreds : FormGroup;
-  // loginResponse: any;
+  spinnerActive:any = false;
 
   constructor(
     public navCtrl: NavController,
@@ -51,9 +51,11 @@ export class LoginPage {
   */
 
   login() {
+    this.spinnerActive = true;
     this._userService.login(this.loginCreds.value)
       .subscribe(
         (res) => {
+          
           this.menuCtrl.enable(true);
           this.menuCtrl.swipeEnable(true);
           // console.log('res:', res)
@@ -79,11 +81,12 @@ export class LoginPage {
           // this.loginResponse = res;
           console.log(res);
           this._userService.setCredentials(res);
-          alert("you're logged in!");
+          // alert("you're logged in!");
           this.navCtrl.setRoot(WizardPage);
           //this.getChartData();
         },
         (err) => {
+          this.spinnerActive = false;
           let toast = this.toastCtrl.create({
             message: "Invalid credentials",
             duration: 2500,
