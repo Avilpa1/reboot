@@ -52,7 +52,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Dashboard', component: DashboardPage },
-      { title: 'Wizard', component: WizardPage },
+      // { title: 'Wizard', component: WizardPage },
       { title: 'Profile', component: ProfilePage },
       { title: 'Self Assessment', component: SelfAssessmentPage },
       { title: 'Timeline', component: TimelinePage },
@@ -72,9 +72,11 @@ export class MyApp {
       // Offline event
       this.events.subscribe('network:offline', () => {
       // alert('network:offline ==> '+this.network.type); 
+      console.log(this.isToastPresent)
       if(this.isToastPresent==false) {
         this.isToastPresent = true
         this.presentToast("No Network");
+        console.log(this.isToastPresent)
         }
       });
 
@@ -84,6 +86,7 @@ export class MyApp {
         if(this.isToastPresent==false) {
           this.isToastPresent = true 
           this.presentToast("online")
+          console.log(this.isToastPresent)
         }     
       });
 

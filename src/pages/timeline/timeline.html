@@ -40,7 +40,69 @@
 
         <ion-row>
             <ion-col>
-                <timeline></timeline>
+                <!-- <timeline></timeline> -->
+                
+                <ion-slides slidesPerView="2">
+                        <button type="submit" float-left ion-button  color="primary" class="btnPrev" (click)="prev()">Prev</button>
+                        <button type="submit" float-right ion-button color="primary" class="btnNext" (click)="next()">Next</button>
+                           
+                        <ion-slide>
+                            <ion-segment>
+                                <ion-segment-button>
+                                  Getting Out
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-slide>
+                        <ion-slide>
+                            <ion-segment>
+                                <ion-segment-button>
+                                  Starting Up
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-slide>
+                        <ion-slide>
+                            <ion-segment>
+                                <ion-segment-button>
+                                  Taking Care Of Myself
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-slide>
+                        <ion-slide>
+                            <ion-segment>
+                                <ion-segment-button>
+                                  Reinventing Myself
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-slide>
+                        <ion-slide>
+                            <ion-segment>
+                                <ion-segment-button>
+                                  Putting Down Roots
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-slide>
+                        <ion-slide>
+                            <ion-segment>
+                                <ion-segment-button>
+                                    Retiring
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-slide>
+                        <ion-slide>
+                            <ion-segment>
+                                <ion-segment-button>
+                                  Aging
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-slide>
+                        <ion-slide>
+                            <ion-segment>
+                                <ion-segment-button>
+                                  Dying
+                                </ion-segment-button>
+                            </ion-segment>
+                        </ion-slide>
+                      </ion-slides>
             </ion-col>
         </ion-row>
     </ion-grid>

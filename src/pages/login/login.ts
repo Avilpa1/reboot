@@ -26,6 +26,7 @@ export class LoginPage {
 
   private loginCreds : FormGroup;
   spinnerActive:any = false;
+  data:any
 
   constructor(
     public navCtrl: NavController,
@@ -148,7 +149,7 @@ export class LoginPage {
 
   bkChange() {
     this.bgInterval = setInterval(() => {
-      let random = Math.floor(Math.random() * 5) + 1
+      let random = Math.floor(Math.random() * 4) + 1
       // console.log(random)
         document.getElementById("background").style.backgroundImage = "url('../assets/imgs/bk/bk" + random + ".jpg')";
                                         
@@ -165,10 +166,10 @@ export class LoginPage {
   firstTimeUserCheck() {
     this._userService.getUser()
     .subscribe(response => {
-      let data = response;
-      console.log(data)
-      if (data.militaryBranch) {
-        this.navCtrl.setRoot(DashboardPage);
+      this.data = response;
+      console.log(this.data)
+      if (this.data.militaryBranch) {
+        this.navCtrl.setRoot(DashboardPage, {}, {animate: true, direction: "forward"});
               } else {
         this.navCtrl.setRoot(WizardPage);        
       }

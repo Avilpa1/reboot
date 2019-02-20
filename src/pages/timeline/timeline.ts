@@ -1,23 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
+import { NavController, NavParams, Slides } from 'ionic-angular';
+import { ViewChild } from '@angular/core';
 import {TimelineComponent} from '../../components/timeline/timeline';
 import { TimelineItemComponent } from '../../components/timeline/timeline';
 import { TimelineTimeComponent } from '../../components/timeline/timeline';
-
-/**
- * Generated class for the TimelinePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-timeline',
   templateUrl: 'timeline.html',
 })
 export class TimelinePage {
-
+  @ViewChild('slides') slides: Slides;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -35,5 +28,8 @@ export class TimelinePage {
     }
   }
 
-
+  next() {
+    console.log('next')
+    // this.slides.slideNext();
+  }
 }
