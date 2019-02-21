@@ -48,15 +48,42 @@ page-timeline {
     //     overflow: hidden;
     //   }
 
-    ion-icon .arrowIcon {
-        font-size: 20px;
-        font-size: 40px;
-        line-height: 50px;
+
+    #row {
+        overflow-x: hidden;
+        padding-bottom: 3.5px;
+        white-space: nowrap;
+        max-width: 700px;
     }
 
-    .col {
-        flex-grow: none;
+    #outter {
+        align-self: center
     }
+
+    .segment-md .segment-button {
+        min-height: 40px;
+        height: auto;
+        min-width: 100px;
+        line-height: 1.5rem !important;
+        white-space: normal;
+        margin: 0px 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+      }
+
+      @media only screen and (max-width: 610px) {
+        #row {
+            overflow-x: scroll;
+        }
+
+        #outter {
+            align-self: inherit;
+        }
+        
+      }
+
 }
 
 

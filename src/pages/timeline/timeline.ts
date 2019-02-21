@@ -18,6 +18,7 @@ export class TimelinePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TimelinePage');
+    console.log(this.list[0].title)
   }
 
   toggleSection(number){
@@ -36,4 +37,37 @@ export class TimelinePage {
   prev() {
     this.slides.slidePrev();
   }
+
+  public list = [
+    {
+      title: 'Understanding the process of separating',
+      section: 'Getting Out',
+      subItems: [
+        {
+          subTitle: "Completing my paperwork",
+          checkmark: true, 
+        },
+        {
+          subTitle: "Completing my paperwork",
+          checkmark: true,
+        },
+      ]
+    },
+    {
+      title: "Mail stuff",
+      section: 'Getting Out',
+      subItems: [
+        {
+          subTitle: "Completing my paperwork",
+          checkmark: true, 
+        },
+        {
+          subTitle: "Completing my paperwork",
+          checkmark: true,
+        },
+      ]
+    }
+  ]
+
+  
 }
