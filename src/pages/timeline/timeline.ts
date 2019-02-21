@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
-import { TimelineComponent } from '../../components/timeline/timeline';
-import { TimelineItemComponent } from '../../components/timeline/timeline';
-import { TimelineTimeComponent } from '../../components/timeline/timeline';
 
 @Component({
   selector: 'page-timeline',
@@ -30,13 +27,10 @@ export class TimelinePage {
     }
   }
 
-  next() {
-    this.slides.slideNext();
+  slide(x) {
+    this.slides.slideTo(x);
   }
 
-  prev() {
-    this.slides.slidePrev();
-  }
 
   public list = [
     {

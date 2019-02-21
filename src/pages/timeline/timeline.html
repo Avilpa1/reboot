@@ -18,28 +18,44 @@
     <ion-grid>
         <div id='outter'>
         <ion-row id='row'>
-            <ion-segment>
-                <ion-segment-button>
+            <ion-segment mode="md">
+                <ion-segment-button (click)="slide(0)">
                     <span>Getting Out</span>
                 </ion-segment-button>
-                <ion-segment-button>
+                <ion-segment-button (click)="slide(1)">
                     <span>Starting Up</span>
                 </ion-segment-button>
-                <ion-segment-button>
+                <ion-segment-button (click)="slide(2)">
                     <span>Self Care</span> 
                 </ion-segment-button>
-                <ion-segment-button>
+                <ion-segment-button (click)="slide(3)">
                     <span>Reinventing Myself</span> 
                 </ion-segment-button>
-                <ion-segment-button>
+                <ion-segment-button (click)="slide(4)">
                     <span>Settling Down</span> 
                 </ion-segment-button>
             </ion-segment>
         </ion-row>
         </div>
-        <h1>test</h1>
     </ion-grid>
-            
+
+    <ion-slides slidesPerView="1" #slides>
+        <ion-slide>
+                Getting Out
+        </ion-slide>
+        <ion-slide>
+                Starting Up
+        </ion-slide>
+        <ion-slide>
+                Self Care
+        </ion-slide>
+        <ion-slide>
+                Reinventing Myself
+        </ion-slide>
+        <ion-slide>
+                Settling Down
+        </ion-slide>
+      </ion-slides>
 
 
 

@@ -48,16 +48,19 @@ page-timeline {
     //     overflow: hidden;
     //   }
 
-
-    #row {
-        overflow-x: hidden;
-        padding-bottom: 3.5px;
-        white-space: nowrap;
-        max-width: 700px;
+    .grid {
+        overflow-x: auto;
     }
 
     #outter {
-        align-self: center
+        overflow-x: hidden;
+    }
+
+    #row {
+        padding-bottom: 3.5px;
+        white-space: nowrap;
+        max-width: 700px;
+        margin: auto;
     }
 
     .segment-md .segment-button {
@@ -70,16 +73,21 @@ page-timeline {
         display: flex;
         justify-content: center;
         align-items: center;
-    
+      }
+
+      .scroll-content {
+          overflow: hidden;
       }
 
       @media only screen and (max-width: 610px) {
-        #row {
+        #outter {
             overflow-x: scroll;
+            min-width: 650px;
+            margin-bottom: -5.5px;
         }
 
-        #outter {
-            align-self: inherit;
+        #row {
+            margin: none;
         }
         
       }
