@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
-import {TimelineComponent} from '../../components/timeline/timeline';
+import { TimelineComponent } from '../../components/timeline/timeline';
 import { TimelineItemComponent } from '../../components/timeline/timeline';
 import { TimelineTimeComponent } from '../../components/timeline/timeline';
 
@@ -12,7 +12,8 @@ import { TimelineTimeComponent } from '../../components/timeline/timeline';
 export class TimelinePage {
   @ViewChild('slides') slides: Slides;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -29,7 +30,10 @@ export class TimelinePage {
   }
 
   next() {
-    console.log('next')
-    // this.slides.slideNext();
+    this.slides.slideNext();
+  }
+
+  prev() {
+    this.slides.slidePrev();
   }
 }
