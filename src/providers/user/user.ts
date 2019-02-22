@@ -81,5 +81,13 @@ export class UserProvider {
     return this.http.get(this.requestUrl + 'appUsers/' + this.getCredentials().userId + '/charts?access_token=' + creds.token);
   }
 
+  logout() {
+    this.logoutUser()
+    .subscribe(response => {
+      let data = response;
+      console.log(data)
+    })
+  }
+
 }
 

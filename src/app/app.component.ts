@@ -131,6 +131,7 @@ presentToast( message ) {
 
   logout() {
     console.log('user logged out')
+    this._user.logout()
     window.sessionStorage.clear()
     this.nav.setRoot(LoginPage); 
   }

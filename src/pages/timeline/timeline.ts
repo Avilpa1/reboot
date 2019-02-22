@@ -16,6 +16,7 @@ export class TimelinePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TimelinePage');
     console.log(this.list[0].title)
+    console.log(this.mainGoals)
   }
 
   toggleSection(number){
@@ -30,6 +31,21 @@ export class TimelinePage {
   slide(x) {
     this.slides.slideTo(x);
   }
+
+  public mainGoals = [
+    {
+      title: 'Getting Out'
+    },
+    {
+      title: 'Self Care'
+    },
+    {
+      title: 'Reinventing Myself'
+    },
+    {
+      title: 'Settling Down'
+    }
+  ]
 
 
   public list = [
