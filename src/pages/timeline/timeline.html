@@ -13,19 +13,19 @@
         <div id='outter'>
         <ion-row id='row'>
             <ion-segment mode="md">
-                <ion-segment-button (click)="slide(0)">
+                <ion-segment-button (click)="slide(0)" value='null'>
                     <span>Getting Out</span>
                 </ion-segment-button>
-                <ion-segment-button (click)="slide(1)">
+                <ion-segment-button (click)="slide(1)" value='null'>
                     <span>Starting Up</span>
                 </ion-segment-button>
-                <ion-segment-button (click)="slide(2)">
+                <ion-segment-button (click)="slide(2)" value='null'>
                     <span>Self Care</span> 
                 </ion-segment-button>
-                <ion-segment-button (click)="slide(3)">
+                <ion-segment-button (click)="slide(3)" value='null'>
                     <span>Reinventing Myself</span> 
                 </ion-segment-button>
-                <ion-segment-button (click)="slide(4)">
+                <ion-segment-button (click)="slide(4)" value='null'>
                     <span>Settling Down</span> 
                 </ion-segment-button>
             </ion-segment>
@@ -63,9 +63,8 @@
                                         <ion-row style="overflow:hidden; align-items:center">
                                             <ion-col col-10>{{ steps.step }}</ion-col>
                                             <ion-col col-2>
-                                                <ion-checkbox mode='ios' [(ngModel)]='checkbox[steps.stepId]' (click)='subgoalCheck(i,x,j)' float-end></ion-checkbox>
+                                                <ion-checkbox mode='ios' [(ngModel)]='timelineProvider.checkbox[steps.stepId]' (click)='subgoalCheck(i,x,j)' float-end></ion-checkbox>
                                             </ion-col>
-                                            <!-- id{{ i }}{{ x }}{{ j }} -->
                                         </ion-row>  
                                     </ion-card-content>
                                 </div>

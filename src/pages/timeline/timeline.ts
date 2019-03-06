@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Slides, Checkbox } from 'ionic-angular';
+import { NavController, NavParams, Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
+import { TimelineProvider } from '../../providers/timeline/timeline';
 
 @Component({
   selector: 'page-timeline',
@@ -9,23 +10,9 @@ import { ViewChild } from '@angular/core';
 export class TimelinePage {
   @ViewChild('slides') slides: Slides;
 
-  icon: any = 'ios-arrow-forward';
-  checkboxItem: any;
-  checkbox:any = {
-    // 'id00': true,
-    // 'id01': true,
-    // 'id02': true,
-    // 'id30': true,
-    // 'id000': true,
-    // 'id001': true
-  };
-  subgoalDone:any = {};
-  idNum: any;
-
   constructor(public navCtrl: NavController, 
-              public navParams: NavParams) {
- 
-  }
+              public navParams: NavParams,
+              public timelineProvider: TimelineProvider) {}
 
   ionViewDidLoad() {
     this.slides.lockSwipes(true);
@@ -364,7 +351,7 @@ public goals:any = [
   }
 
   updateProgress() {
-    console.log(this.checkbox)
+    this.timelineProvider.updateTimeline(this.timelineProvider.checkbox)
   }
 
   initsubgoalCheck() {
@@ -373,7 +360,7 @@ public goals:any = [
       for(let b=0; b<this.goals[a].subGoal.length; b++) {
         let id = this.goals[a].subGoal[b].subgoalId
 
-        if(id in this.checkbox) {
+        if(id in this.timelineProvider.checkbox) {
           this.goals[a].subGoal[b].complete = true
         }
       }
@@ -384,19 +371,19 @@ public goals:any = [
     let subgoalId = 'id' + i + x
     let stepId = 'id' + i + x + j
 
-    if(this.checkbox[stepId] == false) {
-      delete this.checkbox[stepId]
+    if(this.timelineProvider.checkbox[stepId] == false) {
+      delete this.timelineProvider.checkbox[stepId]
     }
   
     for(let e=0; e<this.goals[i].subGoal[x].steps.length; e++) {
       let id = this.goals[i].subGoal[x].steps[e].stepId
 
-      if(id in this.checkbox && this.checkbox[id] == true) {
+      if(id in this.timelineProvider.checkbox && this.timelineProvider.checkbox[id] == true) {
         this.goals[i].subGoal[x].complete = true
-        this.checkbox[subgoalId] = true
+        this.timelineProvider.checkbox[subgoalId] = true
       } else {
         this.goals[i].subGoal[x].complete = false
-        delete this.checkbox[subgoalId]
+        delete this.timelineProvider.checkbox[subgoalId]
         break
       }
     }
